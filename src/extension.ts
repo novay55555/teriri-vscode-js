@@ -1,26 +1,26 @@
 import * as vscode from 'vscode';
-import { CodeReader } from './reader'
+import { CodeReader } from './reader';
 
 export async function activate(context: vscode.ExtensionContext) {
-	const codeReader = new CodeReader()
+	const codeReader = new CodeReader();
 	
-	await codeReader.init()
+	await codeReader.init();
 
 	let jsFragmentProvider = vscode.languages.registerCompletionItemProvider('javascript', {
 		provideCompletionItems() {
-			const fragments = Array.from(codeReader.codeMap.keys())
+			const fragments = Array.from(codeReader.codeMap.keys());
 
 			return fragments.map(fragmentName => {
-				const completion = new vscode.CompletionItem(fragmentName, 2)
-				const fragmentMap = codeReader.codeMap.get(fragmentName)
+				const completion = new vscode.CompletionItem(fragmentName, 2);
+				const fragmentMap = codeReader.codeMap.get(fragmentName);
 
-				completion.insertText = new vscode.SnippetString(fragmentMap?.code)
-				completion.documentation = new vscode.MarkdownString(fragmentMap?.doc)
+				completion.insertText = new vscode.SnippetString(fragmentMap?.code);
+				completion.documentation = new vscode.MarkdownString(fragmentMap?.doc);
 
-				return completion
-			})
+				return completion;
+			});
 		}
-	})
+	});
 
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated

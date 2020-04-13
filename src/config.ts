@@ -1,7 +1,7 @@
-import { join } from 'path'
+import { join } from 'path';
 
-const codePath = join(__dirname, '../codes')
+const codePath = join(__dirname, '../codes');
 
 export {
   codePath
-}
+};
