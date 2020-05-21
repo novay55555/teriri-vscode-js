@@ -6,7 +6,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	
 	await codeReader.init();
 
-	let jsFragmentProvider = vscode.languages.registerCompletionItemProvider('javascript', {
+	let jsFragmentProvider = vscode.languages.registerCompletionItemProvider(['javascript', 'html'], {
 		provideCompletionItems() {
 			const fragments = Array.from(codeReader.codeMap.keys());
 
