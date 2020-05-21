@@ -3,5 +3,5 @@
 `refer by: https://juejin.im/post/5e5ef2f9f265da57685dc9c1#heading-6`
 
 ```typescript
-(el: HTMLElement, partiallyVisible?: boolean) => boolean
+(el: HTMLElement, partiallyVisible?: boolean): boolean
 ```

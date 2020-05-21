@@ -3,7 +3,7 @@ $.ajax封装
 `新增retry参数`
 
 ```typescript
-(settings: extendJqueryAjaxOptions) => $ajax
+(settings: extendJqueryAjaxOptions): $ajax
 
 interface extendJqueryAjaxOptions extends jqueryAjaxOptions {
   retry: {
@@ -13,7 +13,7 @@ interface extendJqueryAjaxOptions extends jqueryAjaxOptions {
 }
 
 interface $ajax {
-  get(url, jqueryAjaxOptions) => Promise<any>;
-  post(url, data, jqueryAjaxOptions) => Promise<any>;
+  get(url, jqueryAjaxOptions): Promise<any>;
+  post(url, data, jqueryAjaxOptions): Promise<any>;
 }
 ```

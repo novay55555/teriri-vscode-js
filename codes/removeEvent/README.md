@@ -3,5 +3,5 @@
 `compatible with ie8`
 
 ```typescript
-removeEvent(elem: HTMLElement, type: string, handler: (e: MouseEvent) => void) => void
+removeEvent(elem: HTMLElement, type: string, handler: (e: MouseEvent): void): void
 ```
