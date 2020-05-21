@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import { CodeReader } from './reader';
+import { CodeReader, Fragment } from './reader';
 
 export async function activate(context: vscode.ExtensionContext) {
 	const codeReader = new CodeReader();
@@ -12,10 +12,10 @@ export async function activate(context: vscode.ExtensionContext) {
 
 			return fragments.map(fragmentName => {
 				const completion = new vscode.CompletionItem(fragmentName, 2);
-				const fragmentMap = codeReader.codeMap.get(fragmentName);
+				const fragmentMap = codeReader.codeMap.get(fragmentName) as Fragment;
 
-				completion.insertText = new vscode.SnippetString(fragmentMap?.code);
-				completion.documentation = new vscode.MarkdownString(fragmentMap?.doc);
+				completion.insertText = fragmentMap.code;
+				completion.documentation = new vscode.MarkdownString(fragmentMap.doc);
 
 				return completion;
 			});

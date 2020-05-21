@@ -53,7 +53,7 @@ class CodeReader extends Emitter {
   }
 }
 
-interface Fragment {
+export interface Fragment {
   code: string,
   doc: string
 }
